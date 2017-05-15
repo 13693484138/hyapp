@@ -1,0 +1,18 @@
+<div class="log-bg">
+    <img src="image/log.png" alt="log">
+  <form name="form">
+    <div class="user user-mt">
+      <span>用户:</span><input type="text" name="phone" validator="required,phone" ng-model="phone">
+    </div>
+    <div class="user pass-mt">
+      <span>密码:</span><input type="password" name="password" validator="required,password" ng-model="password">
+    </div>
+    <div class="log-dl">
+    <a   validation-submit="form" ng-click="submit();">登录</a>
+    <a class="f-l" ui-sref="zhuche">注册</a>
+    <a class="f-r" ui-sref="password">忘记密码</a>
+  </div>
+  </form>
+
+
+</div>

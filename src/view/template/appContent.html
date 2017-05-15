@@ -1,0 +1,52 @@
+<div class="home-content">
+  <div class="home-bar">
+    <a ng-click="ys.activeTab=1">
+     <span class="{{ys.activeTab==1?'home-active':' ';}}">
+      儒
+    </span>
+    </a>
+    <a ng-click="ys.activeTab=2">
+      <span class="{{ys.activeTab==2?'home-active':' ';}}">
+      释
+    </span>
+    </a>
+    <a ng-click="ys.activeTab=3">
+      <span class="{{ys.activeTab==3?'home-active':' ';}}">
+      道
+    </span>
+    </a>
+  </div>
+  <div class="home-list" ng-show="ys.activeTab==1" >
+    <img  ng-click="content('弘毅')" src="image/r-hy.png" alt="">
+    <img  ng-click="content('乐水')" src="image/r-ls.png" alt="">
+    <img  ng-click="content('青囊')" src="image/r-ql.png" alt="">
+    <img  ng-click="content('慎独')" src="image/r-sd.png" alt="">
+    <img  ng-click="content('诗礼')" src="image/r-sl.png" alt="">
+    <img  ng-click="content('宿儒')" src="image/r-ss.png" alt="">
+    <img  ng-click="content('逸经')" src="image/r-yj.png" alt="">
+    <img  ng-click="content('雅赏')" src="image/r-ys.png" alt="">
+    <img  ng-click="content('至诚')" src="image/r-zc.png" alt="">
+  </div>
+  <div class="home-list" ng-show="ys.activeTab==3">
+    <img ng-click="content('抱朴')" src="image/d-bp.png" alt="">
+    <img ng-click="content('静笃')" src="image/d-jd.png" alt="">
+    <img ng-click="content('歧黄')" src="image/d-qh.png" alt="">
+    <img ng-click="content('无为')" src="image/d-ww.png" alt="">
+    <img ng-click="content('玄霄')" src="image/d-xg.png" alt="">
+    <img ng-click="content('心斋')" src="image/d-xz.png" alt="">
+    <img ng-click="content('轩箓')" src="image/d-xz1.png" alt="">
+    <img ng-click="content('一炁')" src="image/d-yc.png" alt="">
+    <img ng-click="content('玉虚')" src="image/d-yx.png" alt="">
+  </div>
+  <div class="home-list" ng-show="ys.activeTab==2">
+    <img ng-click="content('般若')" src="image/s-br.png" alt="">
+    <img ng-click="content('禅悦')" src="image/s-cy.png" alt="">
+    <img ng-click="content('定慧')" src="image/s-dh.png" alt="">
+    <img ng-click="content('梵行')" src="image/s-fx.png" alt="">
+    <img ng-click="content('悬壶')" src="image/s-hh.png" alt="">
+    <img ng-click="content('菩提')" src="image/s-pt.png" alt="">
+    <img ng-click="content('缘觉')" src="image/s-yj.png" alt="">
+    <img ng-click="content('止观')" src="image/s-zg.png" alt="">
+    <img ng-click="content('自在')" src="image/s-zz.png" alt="">
+  </div>
+</div>
