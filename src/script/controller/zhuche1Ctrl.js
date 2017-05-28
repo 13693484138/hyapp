@@ -12,6 +12,12 @@ angular.module('app').controller('zhuche1Ctrl',['$stateParams','$scope','$state'
          dataType:'json',
          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
        }).then(function(data){
+         if(data.data.RET.DATA==1){
+           alert("验证码已发送!");
+         }
+         else {
+           alert("验证码发送失败!");
+         }
         });
       }
     $scope.zhuche2=function(){

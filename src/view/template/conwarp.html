@@ -1,5 +1,5 @@
 <div class="conwarp ta-c ">
-  <div class="conwarp-item p-r " ng-repeat="item in data">
+  <div class="conwarp-item p-r " ui-sref="yuedu({wid:item.WJ_ID,name:0})"  ng-repeat="item in data">
     <img class="img-fm" ng-src="{{'http://www.kingwant.com/'+item.WJ_FM}}" alt="">
     <span class="p-a ta-r"><img src="image/ys-rj.png" alt="">{{item.WJ_WCOUNT}}</span>
   </div>

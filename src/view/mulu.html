@@ -1,0 +1,10 @@
+<div con-head name="'目录'" bc="true"></div>
+<ul class="mui-table-view list-mt">
+       <li  class="mui-table-view-cell"    ng-repeat="item in itemc"  >
+        <a class="mui-navigate-right"   ng-click="misList($index);">{{item}}</a>
+        <div ng-bind="parentId=$index" ng-hide="true"></div>
+           <div class="mui-collapse-content" ng-show="parentId==oa1" ng-repeat="lo in itemz" ng-click="meList(len==1?parentId:$index,lo.GJ_TYP1)" >
+<a>{{lo.GJ_NAME||lo.KCXJ_NAME}}</a>
+            </div>
+       </li>
+   </ul>

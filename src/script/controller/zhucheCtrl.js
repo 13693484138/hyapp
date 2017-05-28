@@ -4,6 +4,20 @@ angular.module('app').controller('zhucheCtrl',['$scope','$http','$location','$st
          window.history.back();
   		};
       $scope.zhuche=function(){
-        $state.go('zhuche1',{phone:$scope.phone1});
+        $http({
+          method:"post",
+          url:"http://www.kingwant.com/App/App.ashx",
+          data:"{\"FunName\":\"Get_Phone_List\",\"Params\":{\"Phones\":'"+$scope.phone1+"'}}",
+          dataType:'json',
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        }).then(function(data){
+          if(data.data.RET.DATA=="No"){
+          $state.go('zhuche1',{phone:$scope.phone1});
+        }
+        else {
+          alert("此用户已经注册!");
+        }
+        });
+
       }
 }]);

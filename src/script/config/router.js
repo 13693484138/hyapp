@@ -30,6 +30,19 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',function($s
     url:"/content/:name",
     templateUrl:"view/content.html",
     controller:"contentCtrl"
+  }).state('meco',{
+    url:"/meco",
+    templateUrl:"view/meco.html",
+    controller:"mecoCtrl"
+  }).state('yuedu',{
+    url:"/yuedu/:wid&:name&:wj&zname:zname",
+    templateUrl:"view/yuedu.html",
+    controller:"yueduCtrl",
+
+  }).state('mulu',{
+    url:"/mulu/:wid&:iis",
+    templateUrl:"view/mulu.html",
+    controller:"muluCtrl"
   });
   $urlRouterProvider.otherwise('loging');
 }])

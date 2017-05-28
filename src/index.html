@@ -2,26 +2,32 @@
 <html lang="en" ng-app="app">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
+  <meta name="viewport" content="target-densitydpi=device-dpi,width=device-width,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>医疗APP</title>
+  <title>和源</title>
   <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script type="text/javascript" src="/js/mui.min.js"></script>
   <link rel="stylesheet" href="/css/mui.min.css">
+  <script type="text/javascript" charset="utf-8">
+    mui.init();
+</script>
 </head>
+
 <body>
    <div ui-view></div>
 </body>
 <script type="text/javascript">
-     document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/10+'px';
+document.getElementsByTagName('html')[0].style.fontSize=window.screen.width/10+'px';
 </script>
 <script type="text/javascript" src="vendor/angular/angular.js"></script>
 <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script type="text/javascript" src="vendor/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+<script type="text/javascript" src="vendor/angular-date/angular-date.min.js"></script>
 <script type="text/javascript" src="vendor/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="vendor/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
 <script type="text/javascript" src="vendor/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 <script type="text/javascript" src="vendor/angular-validation/dist/angular-validation.js" charset="utf-8"></script>
 <script type="text/javascript" src="vendor/angular-cookies/angular-cookies.min.js"></script>
-<script type="text/javascript" src="/js/mui.min.js"></script>
+<script type="text/javascript" src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
 <script type="text/javascript" src="/js/index.js"></script>
 </html>
