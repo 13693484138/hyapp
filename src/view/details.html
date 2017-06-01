@@ -1,0 +1,37 @@
+<div class="details">
+  <img class="back" ng-click="home()" src="image/back.png" alt="">
+  <img  class="details-img" ng-src="{{'http://www.kingwant.com'+detimg}}" alt="">
+  <div class="home-bar">
+    <a ng-click="det.activeTab=1">
+     <span class="{{det.activeTab==1?'home-active':' ';}}">
+      章节
+    </span>
+    </a>
+    <a ng-click="det.activeTab=2">
+      <span class="{{det.activeTab==2?'home-active':' ';}}">
+      详情
+    </span>
+    </a>
+  </div>
+  <div class="details-list" ng-show="det.activeTab==1">
+    <ul class="mui-table-view list-mt" style="padding:0;">
+           <li  class="mui-table-view-cell"    ng-repeat="item in itemc"  >
+            <a class="mui-navigate-right"    ng-click="misList($index);">{{item}}</a>
+            <div ng-bind="parentId=$index" ng-hide="true"></div>
+               <div class="mui-collapse-content" ng-show="parentId==oa1" ng-repeat="lo in itemz" ng-click="meList($index,lo.GJ_TYP1)" >
+    <a>{{lo.GJ_NAME||lo.KCXJ_NAME}}</a>
+                </div>
+           </li>
+       </ul>
+  </div>
+  <div class="details-content" ng-show="det.activeTab==2">
+    <ul>
+      <li><img ng-src="{{'http://www.kingwant.com'+wj_title_img}}" alt=""><span>{{wj_name}}</span></li>
+      <li><span>作者:</span><span>{{wj_user}}</span></li>
+      <li><span>分类:</span><span>{{wj_type}}</span></li>
+      <li><span>语言:</span><span>{{wj_language}}</span></li>
+      <li><span>简介:</span><span></span></li>
+      <div class="details-jj">{{wj_content}}</div>
+    </ul>
+  </div>
+</div>

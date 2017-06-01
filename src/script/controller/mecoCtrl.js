@@ -24,7 +24,7 @@ angular.module('app').controller('mecoCtrl',['$state','$scope','$cookieStore','$
           $scope.user_img=data.data.RET.Sys_GX_User.USER_IMG;
        });
        $scope.back1=function(){
-          window.history.back();
+        $state.go('home');
        }
        $scope.tuichu=function(){
          $http({
@@ -45,10 +45,11 @@ angular.module('app').controller('mecoCtrl',['$state','$scope','$cookieStore','$
          $http({
            method:'POST',
            url:'http://www.kingwant.com/App/App.ashx',
-           data:"{\"Right_ID\":'"+userid+"',\"FunName\":\"Update_User\",\"Params\":{\"Sys_GX_User\":{\"USER_UID\":'"+$scope.user_uid+"',\"USER_BASE_NAME\":'"+$scope.user_base_name+"',\"USER_IMG\":'"+$scope.user_img+"',\"USER_TX\":'"+$scope.user_tx+"',\"USER_BIRTHDAY\":'"+$scope.user_birthday+"',\"USER_NAME\":'"+$scope.user_name+"',\"USER_PASS\":'"+$scope.user_pass+"',\"USER_PHONE\":'"+$scope.user_phone+"',\"USER_SEX\":'"+$scope.user_sex+"',\"USER_CONTENT\":'"+$scope.user_content+"',\"USER_CITY\":'"+$scope.user_city+"',\"USER_ADD_DATE\":'"+$scope.user_add_date+"',\"USER_IS_DELETE\":'"+$scope.user_is_delete+"',\"USER_LAST_DATE\":'"+$scope.user_last_date+"',\"USER_BIRTHDAY\":'"+$scope.user_birthday+"'}}}",
+           data:"{\"Right_ID\":'"+userid+"',\"FunName\":\"Update_User\",\"Params\":{\"Sys_GX_User\":{\"USER_UID\":'"+$scope.user_uid+"',\"USER_BASE_NAME\":'"+$scope.user_base_name+"',\"USER_IMG\":'"+$scope.user_img+"',\"USER_TX\":'"+$scope.user_tx+"',\"USER_BIRTHDAY\":'"+$scope.user_birthday+"',\"USER_NAME\":'"+
+           $scope.user_name+"',\"USER_PASS\":'"+$scope.user_pass+"',\"USER_PHONE\":'"+$scope.user_phone+"',\"USER_SEX\":'"+$scope.user_sex+"',\"USER_CONTENT\":'"+$scope.user_content+"',\"USER_CITY\":'"+$scope.user_city+"',\"USER_ADD_DATE\":'"+$scope.user_add_date+"',\"USER_IS_DELETE\":'"+$scope.user_is_delete+"',\"USER_LAST_DATE\":'"+$scope.user_last_date
+           +"',\"USER_BIRTHDAY\":'"+$scope.user_birthday+"'}}}",
            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
          }).then(function(data){
-           console.log(data);
           if(data.data.RET.DATA==1){
             alert("更新成功!");
           }

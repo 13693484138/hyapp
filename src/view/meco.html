@@ -2,13 +2,13 @@
 <img src="image/hy-gg.png" alt="" ng-click="back1()"><span>个人资料</span><a ng-hide="bc" ng-click="baochun()">保存</a>
 </div>
 <div class="meco">
-<div class="meco-item"><span class="f-l">昵称</span><input class="mt-in f-r" type="text" name="" value="{{user_base_name.length>0?user_base_name:'还没有昵称'}}"></div>
-<div class="meco-item"><span>性别</span><select class="" name="" value="{{user_sex}}" >
+<div class="meco-item"><span class="f-l">昵称</span><input class="mt-in f-r" type="text" name="" ng-model="user_base_name" value="{{user_base_name.length>0?user_base_name:'还没有昵称'}}"></div>
+<div class="meco-item"><span>性别</span><select class="" name="" ng-model="user_sex" value="{{user_sex}}" >
   <option value="男">男</option>
   <option value="女">女</option>
 </select></div>
-<div class="meco-item"><span class="f-l">出生年月</span><input class="f-l data-show" style="width:8rem;padding:0;margin:0;margin-top:0.2rem;height:1.6rem" type="date" value="{{user_birthday}}" ng-model="to_date"></div>
-<div class="meco-item"><span>电话号码</span><span>{{user_phone}}</span></div>
-<div class="meco-Mitem"><div class="f-l">简介</div><textarea class="f-r">{{user_content.length>0?user_content:'快来添加简介吧!'}}</textarea></div>
+<!-- <div class="meco-item"><span class="f-l">出生年月</span><input class="f-l data-show" style="width:8rem;padding:0;margin:0;margin-top:0.2rem;height:1.6rem" type="date" value="{{user_birthday}}" ng-model="to_date"></div> -->
+<div class="meco-item"><span>电话号码</span><span >{{user_phone}}</span></div>
+<div class="meco-Mitem"><div class="f-l">简介</div><textarea class="f-r" ng-model="user_content">{{user_content.length>0?user_content:'快来添加简介吧!'}}</textarea></div>
 <a class="tcdl d-b ta-c" ng-click="tuichu()">退出登录</a>
 </div>

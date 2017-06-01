@@ -4,7 +4,7 @@ angular.module('app').controller('homeCtrl',['$state','$scope','$cookieStore','$
         ys.activeTab=1;
         ys.tab=2;
         $scope.content=function(name){
-          $state.go('content',{name:name});
+          $state.go('content',{name:name,ide:ys.activeTab});
         };
         var gallery = mui('.mui-slider');
   var userid=$cookieStore.get('userid');
@@ -12,15 +12,7 @@ angular.module('app').controller('homeCtrl',['$state','$scope','$cookieStore','$
     var is=$scope.li[index].ADV_URL;
     var isON=is.substring(0,2);
     var iszhe=is.substring(3);
-        if(isON=='WJ'){
-        $state.go('yuedu',{wid:iszhe,name:0});
-        }
-        else if(isON=='KC'){
-        $state.go('yuedu',{wid:iszhe,wj:25});
-        }
-        else{
-          alert("参数传递有错!");
-        }
+    $state.go('details',{wid:iszhe,name:isON});
   }
   $http({
   method:'POST',

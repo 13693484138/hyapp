@@ -27,7 +27,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',function($s
 		templateUrl: "view/home.html",
 		controller: "homeCtrl"
 	}).state('content',{
-    url:"/content/:name",
+    url:"/content/:name&:ide",
     templateUrl:"view/content.html",
     controller:"contentCtrl"
   }).state('meco',{
@@ -38,11 +38,17 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',function($s
     url:"/yuedu/:wid&:name&:wj&zname:zname",
     templateUrl:"view/yuedu.html",
     controller:"yueduCtrl",
-
+    params:{
+                        obj:null
+                },
   }).state('mulu',{
     url:"/mulu/:wid&:iis",
     templateUrl:"view/mulu.html",
     controller:"muluCtrl"
+  }).state('details',{
+    url:"/details/:wid&:name",
+    templateUrl:"view/details.html",
+    controller:"details"
   });
-  $urlRouterProvider.otherwise('loging');
+  $urlRouterProvider.otherwise('details');
 }])

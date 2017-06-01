@@ -2,14 +2,10 @@
 angular.module('app').controller('muluCtrl',['$state','$scope','$stateParams','$http',function($state,$scope,$stateParams,$http){
   $scope.wid=$stateParams.wid;
   $scope.iis=$stateParams.iis;
-  if($scope.iis==1){
+  $scope.is=true;
+if($scope.iis=='WJ'){
   $scope.meList=function(item,item1){
-    if($scope.len>1){
-      $state.go('yuedu',{wid:$scope.wid,wj:item1,name:item});
-    }
-    else {
-        $state.go('yuedu',{wid:$scope.wid,name:item});
-    }
+      $state.go('yuedu',{wid:$scope.wid,obj:$scope.obj,name:item});
   }
   $scope.misList=function(oa){
     $scope.oa1=oa;
@@ -20,6 +16,7 @@ angular.module('app').controller('muluCtrl',['$state','$scope','$stateParams','$
       dataType:'json',
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
     }).then(function(data){
+      $scope.obj=data.data.RET.Sys_GX_ZJ;
     $scope.itemz=data.data.RET.Sys_GX_ZJ;
     $scope.len=data.data.RET.Sys_GX_ZJ.length;
     })
@@ -36,26 +33,42 @@ angular.module('app').controller('muluCtrl',['$state','$scope','$stateParams','$
 
   });
 }
-else if($scope.iis==2){
-    $scope.misList=function(oa){
-        $state.go('yuedu',{wid:$scope.wid,wj:25,name:oa});
-    }
-    $http({
-      method:'post',
-      url:"http://www.kingwant.com/App/App.ashx",
-     data:"{\"FunName\":\"Get_ZKC_DataList\",\"Params\":{\"KC_ID\":'"+$scope.wid+"',\"Page_Index\":\"1\",\"Page_Count\":\"100000\"}}",
-      dataType:'json',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-    }).then(function(data){
-        $scope.len=data.data.RET.Sys_KCXJ.length;
-        var itemc=$scope.itemc=[];
-      for(var i=0;i<$scope.len;i++){
-
-        $scope.itemc.push(data.data.RET.Sys_KCXJ[i].KCXJ_NAME);
-      }
-    });
+else if($scope.iis=='KC'){
+  $scope.misList=function(oa){
+    $state.go('yuedu',{wid:$scope.wid,obj:$scope.data,name:oa});
+  };
+     $http({
+       method:'post',
+       url:'http://www.kingwant.com/App/App.ashx',
+       data:"{\"FunName\":\"Get_KC_DataList\",\"Params\":{\"KC_ID\":'"+$scope.wid+"',\"Page_Index\":\"1\",\"Page_Count\":\"1000\"}}",
+       dataType:'json',
+       headers:{'Content-Type':'application/x-www-form-urlencoded'},
+     }).then(function(data){
+       $scope.detimg=data.data.RET.Sys_KC[0].KC_IMG;
+       $scope.wj_content=data.data.RET.Sys_KC[0].KC_CONTENT;
+       $scope.wj_type=data.data.RET.Sys_KC[0].KC_TYPE;
+       $scope.wj_user=data.data.RET.Sys_KC[0].KC_USER;
+       $scope.wj_name=data.data.RET.Sys_KC[0].KC_NAME;
+       $scope.wj_language=data.data.RET.Sys_KC[0].KC_LANGUAGE;
+       $scope.wj_title_img=data.data.RET.Sys_KC[0].KC_TITLE_IMG;
+     });
+     $http({
+       method:'post',
+       url:'http://www.kingwant.com/App/App.ashx',
+       data:"{\"FunName\":\"Get_ZKC_DataList\",\"Params\":{\"KC_ID\":'"+$scope.wid+"',\"Page_Index\":\"1\",\"Page_Count\":\"1000\"}}",
+       dataType:'json',
+       headers:{'Content-Type':'application/x-www-form-urlencoded'},
+     }).then(function(data){
+      $scope.data=data.data.RET.Sys_KCXJ;
+       var arr1=[];
+       for(var i=0;i<data.data.RET.Sys_KCXJ.length;i++){
+            arr1.push(data.data.RET.Sys_KCXJ[i].KCXJ_TYP1);
+       }
+       $scope.itemc=arr1;
+        //  if(data.data.)
+     });
 }
 else{
-  alert("参数传递有误!")
+  alert("参数传递失误!");
 }
 }]);

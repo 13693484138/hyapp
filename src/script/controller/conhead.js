@@ -1,5 +1,5 @@
 'use strict';
-angular.module('app').directive('conHead',['$stateParams',function($stateParams){
+angular.module('app').directive('conHead',['$stateParams','$state',function($stateParams,$state){
   return{
     restrict:'A',
     replace:true,
@@ -7,11 +7,12 @@ angular.module('app').directive('conHead',['$stateParams',function($stateParams)
     scope:{
       bc:'=',
       text:"=",
-      name:"="
+      name:"=",
+      is:"="
     },
     link:function($scope){
       $scope.back1=function(){
-             window.history.back();
+           $state.go('home');
       		}
     }
   }
