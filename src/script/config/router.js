@@ -38,9 +38,7 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',function($s
     url:"/yuedu/:wid&:name&:wj&zname:zname",
     templateUrl:"view/yuedu.html",
     controller:"yueduCtrl",
-    params:{
-                        obj:null
-                },
+    params:{obj:null},
   }).state('mulu',{
     url:"/mulu/:wid&:iis",
     templateUrl:"view/mulu.html",
@@ -50,5 +48,5 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider',function($s
     templateUrl:"view/details.html",
     controller:"details"
   });
-  $urlRouterProvider.otherwise('details');
+  $urlRouterProvider.otherwise('loging');
 }])

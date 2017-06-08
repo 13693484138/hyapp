@@ -7,6 +7,7 @@ angular.module('app').controller('yueduCtrl',['$state','$scope','$stateParams','
        $scope.back1=function(){
          $state.go('details',{wid:$scope.wid,name:$scope.ysis});
        }
+
        if($scope.obj[0].KCXJ_ID){
          $scope.ysis='KC';
        }

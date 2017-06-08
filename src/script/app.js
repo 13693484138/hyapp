@@ -1,2 +1,4 @@
 'use strict';
-angular.module('app',['ui.router','ngAnimate','ngCookies','ui.bootstrap','ngDate','ngSanitize']);
+var  tank=2;
+var url="http://www.kingwant.com/App/App.ashx";
+angular.module('app',['ngTouch','validation','ui.router','angular-drag','ngCookies','ui.bootstrap','ngDate','ngSanitize']);

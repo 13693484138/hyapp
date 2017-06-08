@@ -7,7 +7,7 @@ angular.module('app').controller('zhuche1Ctrl',['$stateParams','$scope','$state'
       $scope.zhuche1=function(){
         $http({
          method:"POST",
-         url:"http://www.kingwant.com/App/App.ashx",
+         url:url,
          data:"{\"FunName\":\"Set_Right_Code\",\"Params\": {\"DATA\":'"+$scope.phone2+"'}}",
          dataType:'json',
          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

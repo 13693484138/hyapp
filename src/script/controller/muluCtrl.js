@@ -2,7 +2,10 @@
 angular.module('app').controller('muluCtrl',['$state','$scope','$stateParams','$http',function($state,$scope,$stateParams,$http){
   $scope.wid=$stateParams.wid;
   $scope.iis=$stateParams.iis;
-  $scope.is=true;
+  $scope.is=false;
+  $scope.back1=function(){
+    $state.go('yuedu',{wid:$scope.wid,name:$scope.ysis});
+  }
 if($scope.iis=='WJ'){
   $scope.meList=function(item,item1){
       $state.go('yuedu',{wid:$scope.wid,obj:$scope.obj,name:item});
@@ -11,7 +14,7 @@ if($scope.iis=='WJ'){
     $scope.oa1=oa;
     $http({
       method:'post',
-      url:"http://www.kingwant.com/App/App.ashx",
+      url:url,
       data:"{\"FunName\":\"Get_WJ_ZJ_TYPE_DataList\",\"Params\":{\"GJ_WJ_ID\":'"+$scope.wid+"',\"GJ_WJ_ZY_TYPE\":'"+$scope.itemc[oa]+"',\"Page_Index\":\"1\",\"Page_Count\":\"100000\"}}",
       dataType:'json',
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
@@ -23,7 +26,7 @@ if($scope.iis=='WJ'){
   };
   $http({
     method:'post',
-    url:"http://www.kingwant.com/App/App.ashx",
+    url:url,
     data:"{\"FunName\":\"Get_WJ_ZJ_TYPE\",\"Params\":{\"GJ_WJ_ID\":'"+$scope.wid+"'}}",
     dataType:'json',
     headers:{'Content-Type':'application/x-www-form-urlencoded'},
@@ -39,7 +42,7 @@ else if($scope.iis=='KC'){
   };
      $http({
        method:'post',
-       url:'http://www.kingwant.com/App/App.ashx',
+       url:url,
        data:"{\"FunName\":\"Get_KC_DataList\",\"Params\":{\"KC_ID\":'"+$scope.wid+"',\"Page_Index\":\"1\",\"Page_Count\":\"1000\"}}",
        dataType:'json',
        headers:{'Content-Type':'application/x-www-form-urlencoded'},
@@ -54,7 +57,7 @@ else if($scope.iis=='KC'){
      });
      $http({
        method:'post',
-       url:'http://www.kingwant.com/App/App.ashx',
+       url:url,
        data:"{\"FunName\":\"Get_ZKC_DataList\",\"Params\":{\"KC_ID\":'"+$scope.wid+"',\"Page_Index\":\"1\",\"Page_Count\":\"1000\"}}",
        dataType:'json',
        headers:{'Content-Type':'application/x-www-form-urlencoded'},

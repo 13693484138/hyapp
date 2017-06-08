@@ -6,7 +6,7 @@ angular.module('app').controller('zhucheCtrl',['$scope','$http','$location','$st
       $scope.zhuche=function(){
         $http({
           method:"post",
-          url:"http://www.kingwant.com/App/App.ashx",
+          url:url,
           data:"{\"FunName\":\"Get_Phone_List\",\"Params\":{\"Phones\":'"+$scope.phone1+"'}}",
           dataType:'json',
           headers:{'Content-Type':'application/x-www-form-urlencoded'},

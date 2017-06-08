@@ -1,14 +1,14 @@
 'use strict';
-angular.module('app').controller('logingCtrl',['$cookieStore','$scope','$http','$location',function($cookieStore,$scope,$http,$location){
+angular.module('app').controller('logingCtrl',['$rootScope','$cookieStore','$scope','$http','$location',function($rootScope,$cookieStore,$scope,$http,$location){
 
 
   $scope.submit = function() {
-    
-  var data1="{\"FunName\":\"Login\",\"Params\":{\"PhoneNO\":\""+$scope.phone+"\",\"PassWord\":\""+$scope.password+"\"}}";
+
+  var data1="{\"FunName\":\"Login\",\"Params\":{\"PhoneNO\":\""+$scope.phone+"\",\"PassWord\":\""+$scope.passwoed+"\"}}";
   $http({
    method:"POST",
-   url:"http://www.kingwant.com/App/App.ashx",
-   data:"{\"FunName\":\"Login\",\"Params\": {\"PhoneNo\": '"+$scope.phone+"',\"PassWord\": '"+$scope.password+"'}}",
+   url:url,
+   data:"{\"FunName\":\"Login\",\"Params\": {\"PhoneNo\": '"+$scope.phone+"',\"PassWord\": '"+$scope.passwoed+"'}}",
    dataType:'json',
    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   // transformRequest: function(obj) {
@@ -19,12 +19,12 @@ angular.module('app').controller('logingCtrl',['$cookieStore','$scope','$http','
   //             return str.join("&");
   //         }
  }).then(function(data){
-
    if(data.data.RET.DATA==0){
      alert("账号密码错误!");
    }
    else {
      $cookieStore.put('userid',data.data.RET.DATA);
+     $rootScope.Phoneuserid=data.data.RET.DATA;
     $location.path('/home');
    }
   });

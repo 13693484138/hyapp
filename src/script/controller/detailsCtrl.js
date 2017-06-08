@@ -13,7 +13,7 @@ angular.module('app').controller('details',['$state','$scope','$http','$statePar
         $scope.oa1=oa;
         $http({
           method:'post',
-          url:"http://www.kingwant.com/App/App.ashx",
+          url:url,
           data:"{\"FunName\":\"Get_WJ_ZJ_TYPE_DataList\",\"Params\":{\"GJ_WJ_ID\":'"+$scope.wid+"',\"GJ_WJ_ZY_TYPE\":'"+$scope.itemc[oa]+"',\"Page_Index\":\"1\",\"Page_Count\":\"100000\"}}",
           dataType:'json',
           headers:{'Content-Type':'application/x-www-form-urlencoded'},
@@ -25,7 +25,7 @@ angular.module('app').controller('details',['$state','$scope','$http','$statePar
       };
     $http({
       method:'post',
-      url:"http://www.kingwant.com/App/App.ashx",
+      url:url,
       data:"{\"FunName\":\"Get_WJ_ZJ_TYPE\",\"Params\":{\"GJ_WJ_ID\":'"+$scope.wid+"'}}",
       dataType:'json',
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
@@ -35,7 +35,7 @@ angular.module('app').controller('details',['$state','$scope','$http','$statePar
     });
     $http({
       method:'post',
-      url:"http://www.kingwant.com/App/App.ashx",
+      url:url,
       data:"{\"Right_ID\":\"\",\"FunName\":\"Get_WenJi_Data\",\"Params\":{\"DATA\":'"+$scope.wid+"'}}",
       dataType:'json',
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
@@ -55,7 +55,7 @@ angular.module('app').controller('details',['$state','$scope','$http','$statePar
     };
        $http({
          method:'post',
-         url:'http://www.kingwant.com/App/App.ashx',
+         url:url,
          data:"{\"FunName\":\"Get_KC_DataList\",\"Params\":{\"KC_ID\":'"+$scope.wid+"',\"Page_Index\":\"1\",\"Page_Count\":\"1000\"}}",
          dataType:'json',
          headers:{'Content-Type':'application/x-www-form-urlencoded'},
@@ -70,7 +70,7 @@ angular.module('app').controller('details',['$state','$scope','$http','$statePar
        });
        $http({
          method:'post',
-         url:'http://www.kingwant.com/App/App.ashx',
+         url:url,
          data:"{\"FunName\":\"Get_ZKC_DataList\",\"Params\":{\"KC_ID\":'"+$scope.wid+"',\"Page_Index\":\"1\",\"Page_Count\":\"1000\"}}",
          dataType:'json',
          headers:{'Content-Type':'application/x-www-form-urlencoded'},

@@ -17,7 +17,7 @@ angular.module("app").controller('contentCtrl',['$state','$cookieStore','$http',
     {
       name1:'逸经',
       name2:'雅赏',
-      name3:'緣覺'
+      name3:'至诚'
     }
   ]
   }
@@ -62,7 +62,7 @@ angular.module("app").controller('contentCtrl',['$state','$cookieStore','$http',
   };
   $http({
    method:'POST',
-   url:"http://www.kingwant.com/App/App.ashx",
+   url:url,
    data:"{\"Right_ID\":'"+userid+"',\"FunName\":\"Get_WenJi_DataList\",\"Params\":{\"TYPE\":'"+$scope.name+"',\"Page_Index\":\"1\",\"Page_Count\":\"9\"}}",
    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
  }).then(function(data){

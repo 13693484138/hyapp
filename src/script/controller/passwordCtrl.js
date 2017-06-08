@@ -6,7 +6,7 @@ angular.module('app').controller('passwordCtrl',['$state','$scope','$http',funct
   $scope.yz_password=function(){
     $http({
      method:"POST",
-     url:"http://www.kingwant.com/App/App.ashx",
+     url:url,
      data:"{\"FunName\":\"Set_Right_Code\",\"Params\": {\"DATA\":'"+$scope.phonpass+"'}}",
      dataType:'json',
      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

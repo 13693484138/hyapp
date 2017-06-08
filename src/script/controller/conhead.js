@@ -12,7 +12,8 @@ angular.module('app').directive('conHead',['$stateParams','$state',function($sta
     },
     link:function($scope){
       $scope.back1=function(){
-           $state.go('home');
+        window.history.back();
+          //  $state.go('home',{cc:2});
       		}
     }
   }
